@@ -6,7 +6,6 @@ const largeImg = document.querySelector('#largeImg');
 // eslint-disable-next-line no-shadow
 images.addEventListener('click', (event) => {
   const link = event.target.closest('.list-item');
-  const imagesHREf = link.querySelector('a').getAttribute('href');
 
   if (!link) {
     return;
@@ -14,5 +13,9 @@ images.addEventListener('click', (event) => {
 
   event.preventDefault();
 
-  largeImg.setAttribute('src', window.location.origin + imagesHREf);
+  const anchor = link.querySelector('a');
+
+  largeImg.src = anchor.href;
+
+  largeImg.setAttribute('src', anchor);
 });
