@@ -7,14 +7,12 @@ const largeImg = document.querySelector('#largeImg');
 images.addEventListener('click', (event) => {
   const link = event.target.closest('.list-item');
   const imagesHREf = link.querySelector('a').getAttribute('href');
-  const imgSRC = link.querySelector('img').getAttribute('src');
 
-  // console.log(imgSRC);
+  if (!link) {
+    return;
+  }
 
   event.preventDefault();
 
-  largeImg.setAttribute(
-    'src',
-    window.location.origin + imagesHREf || window.location.origin + imgSRC,
-  );
+  largeImg.setAttribute('src', window.location.origin + imagesHREf);
 });
